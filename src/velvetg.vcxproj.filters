@@ -1,0 +1,213 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav</Extensions>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="allocArray.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="autoOpen.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="binarySequences.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="concatenatedGraph.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="concatenatedPreGraph.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="correctedGraph.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="dfib.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="dfibHeap.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="fib.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="fibHeap.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="graph.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="graphReConstruction.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="graphStats.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="kmer.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="kmerOccurenceTable.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="locallyCorrectedGraph.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="passageMarker.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="preGraph.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="preGraphConstruction.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="readCoherentGraph.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="readSet.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="recycleBin.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="roadMap.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="run2.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="scaffold.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="shortReadPairs.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="splay.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="splayTable.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="tightString.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="utility.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="allocArray.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="autoOpen.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="binarySequences.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="concatenatedGraph.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="concatenatedPreGraph.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="correctedGraph.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="dfib.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="dfibHeap.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="dfibpriv.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="fib.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="fibHeap.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="fibpriv.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="globals.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="graph.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="graphReConstruction.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="graphStats.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="kmer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="kmerOccurenceTable.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="kseq.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="locallyCorrectedGraph.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="passageMarker.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="preGraph.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="preGraphConstruction.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="readCoherentGraph.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="readSet.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="recycleBin.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="roadMap.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="run.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="scaffold.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="shortReadPairs.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="splay.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="splayTable.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="tightString.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="utility.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
