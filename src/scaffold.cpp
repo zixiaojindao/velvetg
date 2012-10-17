@@ -21,9 +21,13 @@ Copyright 2007, 2008 Daniel Zerbino (zerbino@ebi.ac.uk)
 #include <stdlib.h>
 #include <stdio.h>
 #include <time.h>
-#include <math.h>
+#include "windows_port\localmath.h"
+
+#if defined(_WIN32) || defined(__WIN32__) || defined(WIN32)
+#else
 #include <sys/time.h>
- 
+#endif 
+
 #ifdef _OPENMP
 #include <omp.h>
 #endif
@@ -169,7 +173,7 @@ static Connection *allocateConnection()
 		connectionMemory =
 		    newRecycleBin(sizeof(Connection), BLOCK_SIZE);
 
-	connect = allocatePointer(connectionMemory);
+	connect = (Connection*)allocatePointer(connectionMemory);
 #ifdef _OPENMP
 	}
 #endif
@@ -714,8 +718,8 @@ static void estimateLibraryInsertLength(IDnum * coOccurences, IDnum coOccurences
 	if (variance == 0)
 		variance = 1;
 
-	velvetLog("Paired-end library %i has length: %lli, sample standard deviation: %lli\n", libID + 1, (long long) median, (long long) sqrt(variance));
-	setInsertLengths(graph, libID, median, sqrt(variance));
+	velvetLog("Paired-end library %i has length: %lli, sample standard deviation: %lli\n", libID + 1, (long long) median, (long long) sqrt((double)variance));
+	setInsertLengths(graph, libID, median, sqrt((double)variance));
 	estimated[libID] = true;
 }
 
@@ -1033,7 +1037,7 @@ static ConnectionStack *allocateConnectionStack(void)
 		connectionStackMemory =
 		    newRecycleBin(sizeof(ConnectionStack), BLOCK_SIZE);
 
-	return allocatePointer(connectionStackMemory);
+	return (ConnectionStack*)allocatePointer(connectionStackMemory);
 #endif
 }
 

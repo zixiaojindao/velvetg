@@ -75,7 +75,7 @@ static SplayNode *allocateSplayNode()
 	if (treeMemory == NULL)
 		treeMemory = newRecycleBin(sizeof(SplayNode), CHUNKSIZE);
 
-	return allocatePointer(treeMemory);
+	return (SplayNode*)allocatePointer(treeMemory);
 #endif
 }
 

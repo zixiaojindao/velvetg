@@ -41,13 +41,13 @@ Copyright 2007, 2008 Daniel Zerbino (zerbino@ebi.ac.uk)
 static PassageMarkerList *copyMarkers(Node * node)
 {
 	PassageMarkerList *list = NULL;
-	PassageMarkerList *new;
+	PassageMarkerList *new_cpp;
 	PassageMarkerI currentMarker;
 
 	for (currentMarker = getMarker(node); currentMarker != NULL_IDX;
 	     currentMarker = getNextInNode(currentMarker)) {
-		new = newPassageMarkerList(currentMarker, list);
-		list = new;
+		new_cpp = newPassageMarkerList(currentMarker, list);
+		list = new_cpp;
 	}
 
 	return list;

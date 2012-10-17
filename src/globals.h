@@ -50,6 +50,8 @@ Copyright 2007, 2008 Daniel Zerbino (zerbino@ebi.ac.uk)
 #define NULL_IDX 0
 
 #if defined(_WIN32) || defined(__WIN32__) || defined(WIN32)
+#include "makeconfig.h"
+#include "windows_port/localtime.h"
 #define inline __inline
 extern struct tString_st;
 extern struct readSet_st;

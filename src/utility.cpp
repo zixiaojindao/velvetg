@@ -23,7 +23,11 @@ Copyright 2009 John Marshall (jm18@sanger.ac.uk)
 #include <stdarg.h>
 #include <stdio.h>
 #include <errno.h>
+
+#if defined(_WIN32) || defined(__WIN32__) || defined(WIN32)
+#else
 #include <sys/time.h>
+#endif
 
 #include "globals.h"
 #include "utility.h"

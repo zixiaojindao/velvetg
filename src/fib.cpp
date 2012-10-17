@@ -58,7 +58,7 @@ Copyright 2007, 2008 Daniel Zerbino (zerbino@ebi.ac.uk)
 
 static FibHeapNode *allocateFibHeapEl(FibHeap * heap)
 {
-	return allocatePointer(heap->nodeMemory);
+	return (FibHeapNode*)allocatePointer(heap->nodeMemory);
 }
 
 static void deallocateFibHeapEl(FibHeapNode * a, FibHeap * heap)
@@ -105,17 +105,17 @@ static inline IDnum ceillog2(IDnum a)
 /*
  * Private Heap Functions
  */
-static void fh_initheap(FibHeap * new)
+static void fh_initheap(FibHeap * new_cpp)
 {
-	new->fh_cmp_fnct = NULL;
-	new->nodeMemory = newRecycleBin(sizeof(FibHeapNode), BLOCKSIZE);
-	new->fh_neginf = NULL;
-	new->fh_n = 0;
-	new->fh_Dl = -1;
-	new->fh_cons = NULL;
-	new->fh_min = NULL;
-	new->fh_root = NULL;
-	new->fh_keys = 0;
+	new_cpp->fh_cmp_fnct = NULL;
+	new_cpp->nodeMemory = newRecycleBin(sizeof(FibHeapNode), BLOCKSIZE);
+	new_cpp->fh_neginf = NULL;
+	new_cpp->fh_n = 0;
+	new_cpp->fh_Dl = -1;
+	new_cpp->fh_cons = NULL;
+	new_cpp->fh_min = NULL;
+	new_cpp->fh_root = NULL;
+	new_cpp->fh_keys = 0;
 }
 
 static void fh_destroyheap(FibHeap * h)
@@ -135,7 +135,7 @@ FibHeap *fh_makekeyheap()
 {
 	FibHeap *n;
 
-	if ((n = malloc(sizeof *n)) == NULL)
+	if ((n = (FibHeap*)malloc(sizeof *n)) == NULL)
 		return NULL;
 
 	fh_initheap(n);
@@ -148,7 +148,7 @@ FibHeap *fh_makeheap()
 {
 	FibHeap *n;
 
-	if ((n = malloc(sizeof *n)) == NULL)
+	if ((n = (FibHeap*)malloc(sizeof *n)) == NULL)
 		return NULL;
 
 	fh_initheap(n);

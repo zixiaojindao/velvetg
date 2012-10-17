@@ -59,7 +59,7 @@ static NodeList *allocateNodeList()
 		nodeListMemory =
 		    newRecycleBin(sizeof(NodeList), BLOCK_SIZE);
 
-	return allocatePointer(nodeListMemory);
+	return (NodeList*)allocatePointer(nodeListMemory);
 }
 
 static void deallocateNodeList(NodeList * nodeList)

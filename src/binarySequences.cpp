@@ -32,7 +32,7 @@ Copyright 2011 Convey Computer Corporation (info@conveycomputer.com)
 #include "utility.h"
 
 #if defined(_WIN32) || defined(__WIN32__) || defined(WIN32)
-#include "../third-party/zlib-1.2.3/Win32/include/zlib.h"
+#include "windows_port/zlib.h"
 #else
 #include "../third-party/zlib-1.2.3/zlib.h"
 #endif

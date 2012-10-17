@@ -21,7 +21,7 @@ Copyright 2009 Sylvain Foret (sylvain.foret@anu.edu.au)
 
 #include <stdlib.h>
 #include <stdio.h>
-#include <unistd.h>
+//#include <unistd.h>
 #ifdef _OPENMP
 #include <omp.h>
 #endif
@@ -43,6 +43,10 @@ Copyright 2009 Sylvain Foret (sylvain.foret@anu.edu.au)
 #define INDEX_LENGTH 64
 #endif
 
+#if defined(_WIN32) || defined(__WIN32__) || defined(WIN32)
+#include "windows_port\localmemory.h"
+#endif
+
 struct AllocArrayFreeElement_st
 {
 	AllocArrayFreeElement *next;
@@ -53,7 +57,11 @@ static void initAllocArray(AllocArray * array, size_t elementSize, char * name)
 {
 	array->freeElements = NULL;
 	array->elementSize = elementSize;
+#if defined(_WIN32) || defined(__WIN32__) || defined(WIN32)
+	array->blockSize =	getpagesize() * NB_PAGES_ALLOC;
+#else
 	array->blockSize = sysconf (_SC_PAGESIZE) * NB_PAGES_ALLOC;
+#endif
 	array->maxElements = array->blockSize / array->elementSize;
 	array->maxBlocks = BLOCKS_ALLOC_SIZE;
 	array->blocks = mallocOrExit (array->maxBlocks, void*);
@@ -174,7 +182,7 @@ allocArrayFree (AllocArray *array, ArrayIdx idx)
 	{
 		AllocArrayFreeElement *freeElem;
 
-		freeElem = allocArrayGetElement (array, idx);
+		freeElem = (AllocArrayFreeElement *)allocArrayGetElement (array, idx);
 		freeElem->idx = idx;
 		freeElem->next = array->freeElements;
 		array->freeElements = freeElem;

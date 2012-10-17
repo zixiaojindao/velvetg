@@ -57,7 +57,7 @@ Copyright 2007, 2008 Daniel Zerbino (zerbino@ebi.ac.uk)
 #define BLOCKSIZE 10000
 static DFibHeapNode *allocateDFibHeapNode(DFibHeap * heap)
 {
-	return allocatePointer(heap->nodeMemory);
+	return (DFibHeapNode*)allocatePointer(heap->nodeMemory);
 }
 
 static void deallocateDFibHeapNode(DFibHeapNode * a, DFibHeap * heap)
@@ -113,7 +113,8 @@ DFibHeap *dfh_makekeyheap()
 {
 	DFibHeap *n;
 
-	if ((n = malloc(sizeof *n)) == NULL)
+	if ((n = (DFibHeap*
+		)malloc(sizeof *n)) == NULL)
 		return NULL;
 
 	n->nodeMemory = newRecycleBin(sizeof(DFibHeapNode), BLOCKSIZE);

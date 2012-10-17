@@ -529,20 +529,20 @@ static inline Descriptor *mergeDescriptors_pg(Descriptor * descr,
 	size_t arrayLength;
 	Coordinate newLength =
 	    destinationLength + sourceLength + wordLength - 1;
-	Descriptor *new;
+	Descriptor *new_cpp;
 	Coordinate index;
 
 	// Specify new array
 	arrayLength = newLength / 4;
 	if (newLength % 4)
 		arrayLength++;
-	new = callocOrExit(arrayLength, Descriptor);
+	new_cpp = callocOrExit(arrayLength, Descriptor);
 	for (index = 0; index < arrayLength; index++)
-		new[index] = 0;
+		new_cpp[index] = 0;
 
 	// Copying first descriptor
 	readPtr = descr;
-	writePtr = new;
+	writePtr = new_cpp;
 	writeOffset = 0;
 	for (index = 0; index < destinationLength + wordLength - 1;
 	     index++) {
@@ -629,7 +629,7 @@ static inline Descriptor *mergeDescriptors_pg(Descriptor * descr,
 		}
 	}
 
-	return new;
+	return new_cpp;
 }
 
 static inline Descriptor *mergeDescriptorsH2H_pg(Descriptor * descr,
@@ -645,21 +645,21 @@ static inline Descriptor *mergeDescriptorsH2H_pg(Descriptor * descr,
 	size_t arrayLength;
 	Coordinate newLength =
 	    destinationLength + sourceLength + wordLength - 1;
-	Descriptor *new;
+	Descriptor *new_cpp;
 	Coordinate index;
 
 	// Specify new array
 	arrayLength = newLength / 4;
 	if (newLength % 4)
 		arrayLength++;
-	new = callocOrExit(arrayLength, Descriptor);
+	new_cpp = callocOrExit(arrayLength, Descriptor);
 	for (index = 0; index < arrayLength; index++)
-		new[index] = 0;
+		new_cpp[index] = 0;
 
 	// Copying first descriptor (including final (k-1)-mer)
 	readPtr = descr;
 	readCopy = *readPtr;
-	writePtr = new;
+	writePtr = new_cpp;
 	writeOffset = 0;
 	readOffset = 0;
 	for (index = 0; index < destinationLength + wordLength - 1;
@@ -754,7 +754,7 @@ static inline Descriptor *mergeDescriptorsH2H_pg(Descriptor * descr,
 		}
 	}
 
-	return new;
+	return new_cpp;
 }
 
 static inline Descriptor *mergeDescriptorsF2F_pg(Descriptor * descr,
@@ -770,18 +770,18 @@ static inline Descriptor *mergeDescriptorsF2F_pg(Descriptor * descr,
 	size_t arrayLength;
 	Coordinate newLength =
 	    destinationLength + sourceLength + wordLength - 1;
-	Descriptor *new;
+	Descriptor *new_cpp;
 	Coordinate index;
 
 	// Specify new array
 	arrayLength = newLength / 4;
 	if (newLength % 4)
 		arrayLength++;
-	new = callocOrExit(arrayLength, Descriptor);
+	new_cpp = callocOrExit(arrayLength, Descriptor);
 	for (index = 0; index < arrayLength; index++)
-		new[index] = 0;
+		new_cpp[index] = 0;
 
-	writePtr = new;
+	writePtr = new_cpp;
 	writeOffset = 0;
 
 	// Going to end of first descriptor 
@@ -884,7 +884,7 @@ static inline Descriptor *mergeDescriptorsF2F_pg(Descriptor * descr,
 		}
 	}
 
-	return new;
+	return new_cpp;
 }
 
 void setMultiplicity_pg(PreArcI preArc, IDnum mult)

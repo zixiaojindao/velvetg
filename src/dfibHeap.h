@@ -33,7 +33,7 @@ void destroyDHeap(DFibHeap * heap);
 
 void replaceValueInDHeap(DFibHeapNode * node, Node * newValue);
 
-void *destroyNodeInDHeap(DFibHeapNode * node, DFibHeap * heap);
+void destroyNodeInDHeap(DFibHeapNode * node, DFibHeap * heap);
 
 Time getKey(DFibHeapNode * node);
 #endif

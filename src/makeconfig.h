@@ -1,0 +1,7 @@
+#define BUNDLEDZLIB	1
+#define CATEGORIES 2
+#define MAXKMERLENGTH 31
+//#define BIGASSEMBLY	1
+//#define LONGSEQUENCES	1
+//#define OMP	1
+//#define VBIGASSEMBLY 1

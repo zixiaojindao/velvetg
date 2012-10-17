@@ -66,7 +66,7 @@ static RBConnection *allocateRBConnection()
 		nodeListMemory =
 		    newRecycleBin(sizeof(RBConnection), BLOCKSIZE);
 
-	return allocatePointer(nodeListMemory);
+	return (RBConnection*)allocatePointer(nodeListMemory);
 }
 
 static void deallocateRBConnection(RBConnection * nodeList)

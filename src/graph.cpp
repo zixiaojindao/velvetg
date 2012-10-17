@@ -100,7 +100,7 @@ Arc *allocateArc()
 	if (arcMemory == NULL)
 		arcMemory = newRecycleBin(sizeof(Arc), BLOCKSIZE);
 
-	return allocatePointer(arcMemory);
+	return (Arc *)allocatePointer(arcMemory);
 }
 
 void deallocateArc(Arc * arc)
@@ -734,12 +734,12 @@ static inline Descriptor *mergeDescriptors(Descriptor * descr,
 	Descriptor *readPtr, *writePtr;
 	Descriptor readCopy;
 	int readOffset, writeOffset;
-	Descriptor *new = callocOrExit(arrayLength, Descriptor);
+	Descriptor *new_cpp = callocOrExit(arrayLength, Descriptor);
 	Coordinate index;
 
 	readPtr = descr;
 	readCopy = *readPtr;
-	writePtr = new;
+	writePtr = new_cpp;
 	writeOffset = 0;
 	for (index = 0; index < destinationLength; index++) {
 		(*writePtr) >>= 2;
@@ -786,7 +786,7 @@ static inline Descriptor *mergeDescriptors(Descriptor * descr,
 		}
 	}
 
-	return new;
+	return new_cpp;
 }
 
 static void addBufferToDescriptor(Node * node, Coordinate length)
@@ -855,7 +855,7 @@ void appendDescriptors(Node * destination, Node * source)
 	Descriptor *twinDescr;
 	Coordinate newLength, destinationLength, sourceLength;
 	size_t arrayLength;
-	Descriptor *new;
+	Descriptor *new_cpp;
 	Node *twinDestination;
 
 	if (source == NULL || destination == NULL)
@@ -890,19 +890,19 @@ void appendDescriptors(Node * destination, Node * source)
 		arrayLength++;
 
 	// Merging forward descriptors
-	new =
+	new_cpp =
 	    mergeDescriptors(descr, destinationLength, copy, sourceLength,
 			     arrayLength);
 	free(descr);
-	destination->descriptor = new;
+	destination->descriptor = new_cpp;
 	destination->length = newLength;
 
 	// Merging reverse descriptors
-	new =
+	new_cpp =
 	    mergeDescriptors(twinCopy, sourceLength, twinDescr,
 			     destinationLength, arrayLength);
 	free(twinDescr);
-	twinDestination->descriptor = new;
+	twinDestination->descriptor = new_cpp;
 	twinDestination->length = newLength;
 }
 
@@ -1036,8 +1036,8 @@ static Descriptor *appendSequenceToDescriptor(Descriptor * descr,
 					      boolean downStream)
 {
 	int writeOffset = 0;
-	Descriptor *new = callocOrExit(arrayLength, Descriptor);
-	Descriptor *writePtr = new;
+	Descriptor *new_cpp = callocOrExit(arrayLength, Descriptor);
+	Descriptor *writePtr = new_cpp;
 	TightString *sequence;
 	IDnum sequenceID = getPassageMarkerSequenceID(marker);
 	Coordinate start = getPassageMarkerStart(marker);
@@ -1066,7 +1066,7 @@ static Descriptor *appendSequenceToDescriptor(Descriptor * descr,
 		}
 	}
 
-	return new;
+	return new_cpp;
 }
 
 void appendSequence(Node * node, TightString * reads,
@@ -1076,7 +1076,7 @@ void appendSequence(Node * node, TightString * reads,
 	Descriptor *twinDescr;
 	Coordinate newLength, nodeLength, sourceLength;
 	size_t arrayLength;
-	Descriptor *new;
+	Descriptor *new_cpp;
 	Node *twinNode;
 
 	if (node == NULL)
@@ -1098,22 +1098,22 @@ void appendSequence(Node * node, TightString * reads,
 		arrayLength++;
 
 	// Merging forward descriptors
-	new =
+	new_cpp =
 	    appendSequenceToDescriptor(descr, nodeLength, guide, reads,
 				       getWordLength(graph), arrayLength,
 				       true);
 	free(descr);
-	node->descriptor = new;
+	node->descriptor = new_cpp;
 	node->length = newLength;
 
 	// Merging reverse descriptors
-	new =
+	new_cpp =
 	    appendSequenceToDescriptor(twinDescr, nodeLength,
 				       getTwinMarker(guide), reads,
 				       getWordLength(graph), arrayLength,
 				       false);
 	free(twinDescr);
-	twinNode->descriptor = new;
+	twinNode->descriptor = new_cpp;
 	twinNode->length = newLength;
 }
 
@@ -1219,7 +1219,7 @@ void splitNodeDescriptor(Node * source, Node * target, Coordinate offset)
 	Coordinate originalLength = source->length;
 	Coordinate backLength = originalLength - offset;
 	Coordinate index;
-	Descriptor *descriptor, *new;
+	Descriptor *descriptor, *new_cpp;
 	size_t arrayLength;
 	Nucleotide nucleotide;
 
@@ -1246,12 +1246,12 @@ void splitNodeDescriptor(Node * source, Node * target, Coordinate offset)
 
 	if (target != NULL) {
 		// Target node .. forwards
-		new = mallocOrExit(arrayLength, Descriptor);
-		target->descriptor = new;
+		new_cpp = mallocOrExit(arrayLength, Descriptor);
+		target->descriptor = new_cpp;
 		for (index = 0; index < backLength; index++) {
 			nucleotide =
 			    getNucleotideInDescriptor(descriptor, index);
-			writeNucleotideInDescriptor(nucleotide, new,
+			writeNucleotideInDescriptor(nucleotide, new_cpp,
 						    index);
 		}
 	}
@@ -1267,12 +1267,12 @@ void splitNodeDescriptor(Node * source, Node * target, Coordinate offset)
 
 	// target node other way
 	descriptor = source->twinNode->descriptor;
-	new = mallocOrExit(arrayLength, Descriptor);
-	target->twinNode->descriptor = new;
+	new_cpp = mallocOrExit(arrayLength, Descriptor);
+	target->twinNode->descriptor = new_cpp;
 
 	for (index = offset; index < originalLength; index++) {
 		nucleotide = getNucleotideInDescriptor(descriptor, index);
-		writeNucleotideInDescriptor(nucleotide, new,
+		writeNucleotideInDescriptor(nucleotide, new_cpp,
 					    index - offset);
 	}
 }

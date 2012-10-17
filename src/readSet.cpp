@@ -37,7 +37,7 @@ Copyright 2007, 2008 Daniel Zerbino (zerbino@ebi.ac.uk)
 #if !defined(BUNDLEDZLIB)
 #include <zlib.h>
 #elif defined(_WIN32) || defined(__WIN32__) || defined(WIN32)
-#include "../third-party/zlib-1.2.3/Win32/include/zlib.h"
+#include "windows_port/zlib.h"
 #else
 #include "../third-party/zlib-1.2.3/zlib.h"
 #endif
@@ -638,7 +638,7 @@ static void readFastXFile(int fileType, SequencesWriter *seqWriteInfo, char *fil
 	FileGZOrAuto file;
 	IDnum counter = 0;
 
-        file.gzFile = file.autoFile = NULL;
+        file.gzFile = NULL; 		file.autoFile = NULL;
         if (fileType == AUTO) {
         	file.autoFile = openFileAuto(filename);
                 if (!file.autoFile)
@@ -677,9 +677,11 @@ static void readFastXPair(int fileType, SequencesWriter *seqWriteInfo, char *fil
 	if (cat==REFERENCE)
 		exitErrorf(EXIT_FAILURE, false, "Cannot read reference sequence in 'separate' read mode");
 
-        file1.gzFile = file1.autoFile = NULL;
-        file2.gzFile = file2.autoFile = NULL;
+        file1.gzFile = NULL;	file1.autoFile = NULL;
+        file2.gzFile = NULL;	file2.autoFile = NULL;
         if (fileType == AUTO) {
+			printf("windows velvet do not support AUTO filetype, pls specify filetype\n");
+			exit(0);
         	file1.autoFile = openFileAuto(filename1);
                 if (!file1.autoFile)
                 	exitErrorf(EXIT_FAILURE, false, "Unable to open file '%s' in auto mode", filename1);

@@ -50,3 +50,6 @@ Copyright 2007, 2008 Daniel Zerbino (zerbino@ebi.ac.uk)
 // Repeat resolution
 #include "readCoherentGraph.h"
 #include "shortReadPairs.h"
+
+// Local unistd.h
+#include "windows_port\localunistd.h"

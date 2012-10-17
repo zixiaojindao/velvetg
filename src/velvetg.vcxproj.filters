@@ -15,94 +15,103 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="allocArray.c">
+    <ClCompile Include="splayTable.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="autoOpen.c">
+    <ClCompile Include="shortReadPairs.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="binarySequences.c">
+    <ClCompile Include="windows_port\localmath.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="concatenatedGraph.c">
+    <ClCompile Include="windows_port\localtime.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="concatenatedPreGraph.c">
+    <ClCompile Include="scaffold.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="correctedGraph.c">
+    <ClCompile Include="readSet.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="dfib.c">
+    <ClCompile Include="readCoherentGraph.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="dfibHeap.c">
+    <ClCompile Include="preGraphConstruction.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="fib.c">
+    <ClCompile Include="preGraph.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="fibHeap.c">
+    <ClCompile Include="recycleBin.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="graph.c">
+    <ClCompile Include="roadMap.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="graphReConstruction.c">
+    <ClCompile Include="kmerOccurenceTable.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="graphStats.c">
+    <ClCompile Include="graphReConstruction.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="kmer.c">
+    <ClCompile Include="tightString.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="kmerOccurenceTable.c">
+    <ClCompile Include="binarySequences.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="locallyCorrectedGraph.c">
+    <ClCompile Include="concatenatedGraph.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="passageMarker.c">
+    <ClCompile Include="concatenatedPreGraph.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="preGraph.c">
+    <ClCompile Include="allocArray.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="preGraphConstruction.c">
+    <ClCompile Include="autoOpen.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="readCoherentGraph.c">
+    <ClCompile Include="correctedGraph.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="readSet.c">
+    <ClCompile Include="dfib.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="recycleBin.c">
+    <ClCompile Include="dfibHeap.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="roadMap.c">
+    <ClCompile Include="fibHeap.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="run2.c">
+    <ClCompile Include="fib.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="scaffold.c">
+    <ClCompile Include="graph.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="shortReadPairs.c">
+    <ClCompile Include="graphStats.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="splay.c">
+    <ClCompile Include="kmer.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="splayTable.c">
+    <ClCompile Include="locallyCorrectedGraph.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="tightString.c">
+    <ClCompile Include="passageMarker.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="utility.c">
+    <ClCompile Include="run2.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="splay.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="utility.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="windows_port\localmemory.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -207,6 +216,21 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="utility.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="makeconfig.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="windows_port\localtime.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="windows_port\localmath.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="windows_port\localunistd.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="windows_port\localmemory.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

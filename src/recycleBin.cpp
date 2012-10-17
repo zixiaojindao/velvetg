@@ -132,7 +132,7 @@ void *allocatePointer(RecycleBin * recycle_bin)
 	}
 
 	if (recycle_bin->chunk_pos == recycle_bin->nodes_per_chunk) {
-		chunk = malloc(sizeof(Chunk) + recycle_bin->nodes_per_chunk
+		chunk = (Chunk*)malloc(sizeof(Chunk) + recycle_bin->nodes_per_chunk
 			       * recycle_bin->node_size);
 		if (chunk == NULL) {
 			velvetLog("No more memory for memory chunk!\n");
@@ -158,7 +158,7 @@ void *allocatePointer(RecycleBin * recycle_bin)
 
 void deallocatePointer(RecycleBin * recycle_bin, void *data)
 {
-	RecycleBin_Node *node = data;
+	RecycleBin_Node *node = (RecycleBin_Node*)data;
 
 	node->next = recycle_bin->recycle;
 	recycle_bin->recycle = node;

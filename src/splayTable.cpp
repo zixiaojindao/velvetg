@@ -22,7 +22,11 @@ Copyright 2007, 2008 Daniel Zerbino (zerbino@ebi.ac.uk)
 #include <stdio.h>
 #include <string.h>
 #include <time.h>
+
+#if defined(_WIN32) || defined(__WIN32__) || defined(WIN32)
+#else
 #include <sys/time.h>
+#endif
 
 #ifdef _OPENMP
 #include <omp.h>

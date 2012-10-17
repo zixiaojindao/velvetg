@@ -128,7 +128,7 @@ static Ticket *newTicket()
 		ticketMemory =
 		    newRecycleBin(sizeof(Ticket), TICKET_BLOCK_SIZE);
 
-	return allocatePointer(ticketMemory);
+	return (Ticket*)allocatePointer(ticketMemory);
 }
 
 static boolean isPreviousToNode(Node * previous, Node * target)

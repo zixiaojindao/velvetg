@@ -23,7 +23,7 @@ Copyright 2007, 2008 Daniel Zerbino (zerbino@ebi.ac.uk)
 #include <stdio.h>
 #include <string.h>
 #include <limits.h>
-#include <sys/time.h>
+//#include <sys/time.h>
 
 #ifdef _OPENMP
 #include <omp.h>
@@ -178,7 +178,7 @@ static SmallNodeList *allocateSmallNodeList()
 	if (smallNodeListMemory == NULL)
 		smallNodeListMemory = newRecycleBin(sizeof(SmallNodeList), BLOCKSIZE);
 
-	return allocatePointer(smallNodeListMemory);
+	return (SmallNodeList*)allocatePointer(smallNodeListMemory);
 #endif
 }
 

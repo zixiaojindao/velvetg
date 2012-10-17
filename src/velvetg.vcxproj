@@ -96,6 +96,8 @@
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <SubSystem>Console</SubSystem>
+      <AdditionalLibraryDirectories>D:\sequence\assembly-tools\ms-complie\velvet\velvetg\src\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>zlibwapi.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -128,36 +130,39 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="allocArray.c" />
-    <ClCompile Include="autoOpen.c" />
-    <ClCompile Include="binarySequences.c" />
-    <ClCompile Include="concatenatedGraph.c" />
-    <ClCompile Include="concatenatedPreGraph.c" />
-    <ClCompile Include="correctedGraph.c" />
-    <ClCompile Include="dfib.c" />
-    <ClCompile Include="dfibHeap.c" />
-    <ClCompile Include="fib.c" />
-    <ClCompile Include="fibHeap.c" />
-    <ClCompile Include="graph.c" />
-    <ClCompile Include="graphReConstruction.c" />
-    <ClCompile Include="graphStats.c" />
-    <ClCompile Include="kmer.c" />
-    <ClCompile Include="kmerOccurenceTable.c" />
-    <ClCompile Include="locallyCorrectedGraph.c" />
-    <ClCompile Include="passageMarker.c" />
-    <ClCompile Include="preGraph.c" />
-    <ClCompile Include="preGraphConstruction.c" />
-    <ClCompile Include="readCoherentGraph.c" />
-    <ClCompile Include="readSet.c" />
-    <ClCompile Include="recycleBin.c" />
-    <ClCompile Include="roadMap.c" />
-    <ClCompile Include="run2.c" />
-    <ClCompile Include="scaffold.c" />
-    <ClCompile Include="shortReadPairs.c" />
-    <ClCompile Include="splay.c" />
-    <ClCompile Include="splayTable.c" />
-    <ClCompile Include="tightString.c" />
-    <ClCompile Include="utility.c" />
+    <ClCompile Include="allocArray.cpp" />
+    <ClCompile Include="autoOpen.cpp" />
+    <ClCompile Include="binarySequences.cpp" />
+    <ClCompile Include="concatenatedGraph.cpp" />
+    <ClCompile Include="concatenatedPreGraph.cpp" />
+    <ClCompile Include="correctedGraph.cpp" />
+    <ClCompile Include="dfib.cpp" />
+    <ClCompile Include="dfibHeap.cpp" />
+    <ClCompile Include="fib.cpp" />
+    <ClCompile Include="fibHeap.cpp" />
+    <ClCompile Include="graph.cpp" />
+    <ClCompile Include="graphReConstruction.cpp" />
+    <ClCompile Include="graphStats.cpp" />
+    <ClCompile Include="kmer.cpp" />
+    <ClCompile Include="kmerOccurenceTable.cpp" />
+    <ClCompile Include="locallyCorrectedGraph.cpp" />
+    <ClCompile Include="windows_port\localmath.cpp" />
+    <ClCompile Include="windows_port\localmemory.cpp" />
+    <ClCompile Include="windows_port\localtime.cpp" />
+    <ClCompile Include="passageMarker.cpp" />
+    <ClCompile Include="preGraph.cpp" />
+    <ClCompile Include="preGraphConstruction.cpp" />
+    <ClCompile Include="readCoherentGraph.cpp" />
+    <ClCompile Include="readSet.cpp" />
+    <ClCompile Include="recycleBin.cpp" />
+    <ClCompile Include="roadMap.cpp" />
+    <ClCompile Include="run2.cpp" />
+    <ClCompile Include="scaffold.cpp" />
+    <ClCompile Include="shortReadPairs.cpp" />
+    <ClCompile Include="splay.cpp" />
+    <ClCompile Include="splayTable.cpp" />
+    <ClCompile Include="tightString.cpp" />
+    <ClCompile Include="utility.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="allocArray.h" />
@@ -180,6 +185,10 @@
     <ClInclude Include="kmerOccurenceTable.h" />
     <ClInclude Include="kseq.h" />
     <ClInclude Include="locallyCorrectedGraph.h" />
+    <ClInclude Include="windows_port\localmath.h" />
+    <ClInclude Include="windows_port\localmemory.h" />
+    <ClInclude Include="windows_port\localtime.h" />
+    <ClInclude Include="makeconfig.h" />
     <ClInclude Include="passageMarker.h" />
     <ClInclude Include="preGraph.h" />
     <ClInclude Include="preGraphConstruction.h" />
@@ -194,6 +203,7 @@
     <ClInclude Include="splayTable.h" />
     <ClInclude Include="tightString.h" />
     <ClInclude Include="utility.h" />
+    <ClInclude Include="windows_port\localunistd.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

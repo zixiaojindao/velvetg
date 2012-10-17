@@ -21,7 +21,8 @@ Copyright 2007, 2008 Daniel Zerbino (zerbino@ebi.ac.uk)
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
-#include <unistd.h>
+#include <io.h>
+//#include <unistd.h>
 
 #include "run.h"
 
