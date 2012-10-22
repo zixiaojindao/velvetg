@@ -323,12 +323,12 @@
 #    ifdef FAR
 #      undef FAR
 #    endif
-#    include <windows.h>
+//#    include <windows.h>
      /* No need for _export, use ZLIB.DEF instead. */
      /* For complete Windows compatibility, use WINAPI, not __stdcall. */
-#    define ZEXPORT WINAPI
+#    define ZEXPORT __stdcall//WINAPI
 #    ifdef WIN32
-#      define ZEXPORTVA WINAPIV
+#      define ZEXPORTVA __cdecl//WINAPIV
 #    else
 #      define ZEXPORTVA FAR CDECL
 #    endif

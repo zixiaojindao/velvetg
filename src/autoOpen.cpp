@@ -6,22 +6,63 @@
 #include <assert.h>
 #include "autoOpen.h"
 
+static const char const* decompressors[] = {"","pigz", "gunzip", "pbunzip2", "bunzip2", NULL};
+
 AutoFile* openFileAuto(char*filename)
 {
-	#ifdef DEBUG 
-	printf("should not openFileAuto\n");
-	assert(false);
-	#endif 
+	AutoFile* seqFile = (AutoFile*)calloc(1, sizeof(AutoFile));
+  	int i;
+
+	if (strcmp(filename, "-")==0)
+		  exitErrorf(EXIT_FAILURE, false, "Cannot read from stdin in auto mode\n");
+
+	for (i=0; decompressors[i] ; i++) {
+		if (strlen(decompressors[i])==0) {
+			seqFile->file = fopen(filename, "r");
+			seqFile->pid = 0;
+			seqFile->decompressor = "Raw read";
+		} else {
+			printf("auto file not supported!\n");
+			exit(0);
+			//printf("Trying : %s\n", decompressors[i]);
+			//char const* args[] = {decompressors[i], "-c", "-d", filename, NULL};
+			//seqFile->file = popenNoStderr(args[0], args, &(seqFile->pid));
+			//seqFile->decompressor = decompressors[i];
+		}
+
+		if (!seqFile->file)
+			continue;
+
+		int c = fgetc(seqFile->file);
+		if (c=='>' || c=='@') {
+			// Ok, looks like FASTA or FASTQ
+                	ungetc(c, seqFile->file);
+                        seqFile->first_char = c;
+			return seqFile;
+		} else {
+			//if (seqFile->pid)
+			//	pcloseNoStderr(seqFile->pid, seqFile->file);
+			//else
+			//	fclose(seqFile->file);
+			printf("should not run here!\n");
+			exit(0);
+		}
+	}
+	//printf("Unable to determine file type\n");
 	return NULL;
 }
 
-void closeFileAuto(AutoFile* autoFile)
+void closeFileAuto(AutoFile* seqFile)
 {
-	#ifdef DEBUG 
-	printf("should not closeFileAuto\n");
-	assert(false);
-	#endif 
+	if (!seqFile)
+		return;
+
+	//if (seqFile->pid)
+	//	pcloseNoStderr(seqFile->pid, seqFile->file);
+	else
+		fclose(seqFile->file);
 }
+
 // Implementation of "popen" that ignores stderr
 //static FILE* popenNoStderr(const char *exe, const char *const argv[], int* retPid)
 //{
@@ -120,6 +161,6 @@ void closeFileAuto(AutoFile* autoFile)
 //		pcloseNoStderr(seqFile->pid, seqFile->file);
 //	else
 //		fclose(seqFile->file);
-
+//}
 
 

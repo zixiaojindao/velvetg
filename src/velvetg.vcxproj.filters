@@ -233,5 +233,11 @@
     <ClInclude Include="windows_port\localmemory.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="windows_port\zconf.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="windows_port\zlib.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
