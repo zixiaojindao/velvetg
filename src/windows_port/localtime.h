@@ -2,6 +2,11 @@
 #define LOCALTIME_H
 
 #define MICROSECONDS (1000 * 1000) 
+#if defined(_MSC_VER) || defined(_MSC_EXTENSIONS)
+  #define DELTA_EPOCH_IN_MICROSECS  11644473600000000Ui64
+#else
+  #define DELTA_EPOCH_IN_MICROSECS  11644473600000000ULL
+#endif
 
 #define timeradd(t1, t2, t3) do { \
 (t3)->tv_sec = (t1)->tv_sec + (t2)->tv_sec; \
@@ -24,6 +29,11 @@ struct timeval {
 	long    tv_usec;        // and microseconds
 };
 
+struct timezone
+{
+  int  tz_minuteswest; /* minutes W of Greenwich */
+  int  tz_dsttime;     /* type of dst correction */
+};
 
-int gettimeofday (struct timeval *tv, void *tz);
+int gettimeofday (struct timeval *tv, struct timezone *tz);
 #endif
